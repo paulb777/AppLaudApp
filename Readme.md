@@ -19,7 +19,7 @@ More information about the app available [here](http://www.applaudcloud.com/app.
 Download a built version
 --------
 
-If you want to download an already built .apk file to try it out, it is available for download
+If you want to download an already built Android .apk file, it is available for download
 
 * Click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
 * Android Market (coming soon)
@@ -39,10 +39,9 @@ Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and A
 * Select the zipfile you just created and give the project a name.
 * Click Import Project
 * Now the package needs to be changed so the new app doesn't confict with the original
-
-** Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
-** Navigate to src/mds/applaud. Right click on applaud and select Rename. Change to applaud2
-** Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;
+* Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
+* Navigate to src/mds/applaud. Right click on applaud and select Rename. Change to applaud2
+* Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;
 * Select Package -> Basic Build
 * Wait a few minutes for a pop-up indicating the build is done.
 * In the meantime, navigate the original AppLaud App to the My Apps page
