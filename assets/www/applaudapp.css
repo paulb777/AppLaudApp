@@ -35,23 +35,7 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 	background: repeat-x repeat-y;
 }
 
-/* $('#progress').remove();
-    $('body').append('<div id="progress">Loading...</div>'); */
-#progress {
-	-webkit-border-radius: 10px;
-	background-color: rgba(0,0,0,.7);
-	color: white;
-	font-size: 18px;
-	font-weight: bold;
-	height: 80px;
-	left: 60px;
-	line-height: 80px;
-	margin: 0 auto;
-	position: absolute;
-	text-align: center;
-	top: 120px;
-	width: 200px;
-}
+#appfooter { position:fixed; }
 
 #project_list {margin-top:0;}
 #apk_list {margin-top:0;}

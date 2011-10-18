@@ -49,14 +49,14 @@ $('#dialog-devmenu').live('pageinit', function(event){
         return false;
     });
     
-    function clearLocalStorage() {
+/*    function clearLocalStorage() {
         delete localStorage.applaud_openid;
         delete localStorage.applaud_homepage;
         delete localStorage.applaud_username;
         delete localStorage.applaud_session;        
     }
     
-/*    $('#clear_dev_data').click(function() {
+    $('#clear_dev_data').click(function() {
         clearLocalStorage();   
     });
 */    
@@ -67,5 +67,4 @@ $('#dialog-devmenu').live('pageinit', function(event){
         $.mobile.changePage('#page-login', { changeHash : false });
         setUser('Logged Out');
     });
-    
 });
