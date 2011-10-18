@@ -6,12 +6,12 @@ to create a fast Android development environment.
 
 The AppLaud App has two main functionalities - each represented by a navigation page.
 
-*The My Apps Page works in conjunction with the AppLaud Cloud to run and
+* The My Apps Page works in conjunction with the AppLaud Cloud to run and
 debug a developers project. It can run pure JavaScript Android
 PhoneGap apps directly from the cloud. No download or install is
 necessary. The Download APKs feature enables downloading and running any built
 Android app in the developer's workspace on the device.
-*The Demo Page will run or download several different apps that
+* The Demo Page will run or download several different apps that
 illustrate PhoneGap and jQuery Mobile's capabilities.
 
 More information about the app available [here](http://www.applaudcloud.com/app.html)
@@ -20,6 +20,7 @@ Download a built version
 --------
 
 If you want to download an already built .apk file to try it out, it is available for download
+
 * Click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
 * Android Market (coming soon)
 
@@ -38,6 +39,7 @@ Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and A
 * Select the zipfile you just created and give the project a name.
 * Click Import Project
 * Now the package needs to be changed so the new app doesn't confict with the original
+
 ** Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
 ** Navigate to src/mds/applaud. Right click on applaud and select Rename. Change to applaud2
 ** Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;
