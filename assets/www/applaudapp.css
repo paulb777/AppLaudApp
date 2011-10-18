@@ -1,0 +1,61 @@
+h1 {color:#5a9;} /* color:#6ba; */
+h4 {color:#466;margin-top:.5em;margin-bottom:.6em;}
+
+/* h3 is for project & apk lists */
+h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
+.user-style {color:#126686; font-weight: bold; }
+
+.grey {color:#aaa};
+
+/* listview items: height shorter, text area wider !imporant: keep this order */
+.ui-li .ui-btn-inner a.ui-link-inherit { padding: .3em 15px .3em 10px; }
+.ui-li-has-alt .ui-btn-inner a.ui-link-inherit { padding-right: 40px; }
+
+.ui-icon-weinre {background-image: url(images/weinregrey18x18.png);}
+
+.ui-header .ui-title {margin-right:20px;margin-left:20px;}
+/* JQM: margin-left, margin-right: 90px */
+
+ .ui-footer .ui-title {
+	margin-right:20px;
+	margin-left:20px;
+	white-space:normal;
+ }
+
+/*  JQM: .ui-content { padding: 15px; }
+ *  Leave more space vertically for buttons etc */
+.ui-content { padding: .4em 11px;}
+
+/*  padding: 10px 0 10px 8px; padding: 5px 0 5px 6px;*/
+.ui-collapsible-content { padding: 5px 5px 5px 6px; }
+/* .ui-collapsible { margin: .5em 7px; } */
+
+#page-home, #page-guest { 
+	background-image:url(images/appbkgrnd.png); 
+	background: repeat-x repeat-y;
+}
+
+/* $('#progress').remove();
+    $('body').append('<div id="progress">Loading...</div>'); */
+#progress {
+	-webkit-border-radius: 10px;
+	background-color: rgba(0,0,0,.7);
+	color: white;
+	font-size: 18px;
+	font-weight: bold;
+	height: 80px;
+	left: 60px;
+	line-height: 80px;
+	margin: 0 auto;
+	position: absolute;
+	text-align: center;
+	top: 120px;
+	width: 200px;
+}
+
+#project_list {margin-top:0;}
+#apk_list {margin-top:0;}
+#demo_project_list {margin-top:0;}
+
+.hidden {display:none;}
+.box-nice { padding: 0 0.6em; margin: 0.4em 0.6em;}

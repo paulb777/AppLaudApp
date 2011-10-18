@@ -1,0 +1,245 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=screen.width; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>AppLaud App</title>
+    
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0rc1.min.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="applaudapp.css" type="text/css" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="openid/css/openid.css" />
+    
+    <script type="text/javascript" src="jquery.mobile/jquery-1.6.4.min"></script>
+    <script src="jquery.mobile/jquery.mobile-1.0rc1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.1.0.js"></script>
+    <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
+  
+    <script type="text/javascript" src="jquery.mobile/jquery.form.js"></script>
+    <script type="text/javascript" src="openid/openid-jquery.js"></script>
+    <script type="text/javascript" src="openid/openid-en.js"></script>
+	  
+	<script type="text/javascript" charset="utf-8" src="main.js"></script>
+	<script type="text/javascript" charset="utf-8" src="login.js"></script>
+	<script type="text/javascript" charset="utf-8" src="menu.js"></script>
+	<script type="text/javascript" charset="utf-8" src="home.js"></script>
+	<script type="text/javascript" charset="utf-8" src="guest.js"></script>
+  </head>
+
+  <body onload="init();">
+
+    <div data-role="page" id="page-home" data-theme="c">
+  	<div data-role="header" data-theme="c">
+    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username user-style"></span></h1> 
+		<a href="#dialog-devmenu" data-rel="dialog" data-icon="grid" data-iconpos="notext" class="ui-btn-right" data-theme="d"></a>
+	</div> 
+
+    <div data-role="content">
+
+	<div class="ui-body-c ui-corner-all ui-shadow box-nice hidden" id="guest-user"></div>
+	<div class="ui-body-c ui-corner-all ui-shadow box-nice hidden" id="new-user">
+    <p><h4>Welcome New User!</h4>
+ 		<strong>Registered AppLaud Cloud Users</strong><br>
+ 		To access your AppLaud apps:         
+		<a href="#page-login" data-role="button" data-theme="c" class="goto_login">Go To Login Page</a></p>
+	
+		<p><strong>New or Non-Registered Users</strong><br>
+		To run AppLaud Demos (no login needed):        
+		<a href="#page-guest" data-role="button" data-theme="c">Go To Demos Page</a></p> 
+	
+		<p>OR.. Visit <a href="http://www.mobiledevelopersolutions.com">AppLaud Cloud Home</a>
+		from your desktop to register and create apps.</p>
+	
+    	<p>See Menu for more information.</p>
+   	</div><!-- /new-user -->
+	   
+    <a data-role="button" data-icon="refresh" id="get_project_list">Refresh Project List</a>    
+	<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
+		<li data-role="list-divider">My Projects <span class="grey">Tap to Run; Toggle Weinre</span></li>
+		<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a>
+		<a href="#"></a></li>
+	</ul>
+        
+    <div data-role="button" data-icon="refresh" id="get_apk_list">Refresh APK List</div>
+	<ul id="apk_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
+		<li data-role="list-divider">My APKs <span class="grey">Tap to Install and Run</span></li>
+		<li id="li-placeholder2" data-icon="false"><a href="#"><span class="grey">(empty)</span></a>
+		</li>
+	</ul>
+          
+    </div><!-- /content -->
+	<div data-role="footer" data-theme="c" data-position="fixed" data-id="appfooter">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page-home">My Apps</a></li>
+				<li><a href="#page-guest">Demo Apps</a></li>
+				<li><a href="#dialog-devmenu" data-rel="dialog" class="show-help">Help</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+    </div><!-- /page -->
+
+    <div data-role="page" id="page-login" data-theme="c">
+  	<div data-role="header" data-theme="c">
+    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud</h1> 
+		<a href="#dialog-devmenu" data-rel="dialog" data-icon="grid" data-iconpos="notext" class="ui-btn-right" data-theme="d"></a>
+	</div>    
+	<div data-role="content" data-theme="c">
+	<h4>AppLaud App Login</h4>
+	
+	<!-- Simple OpenID Selector -->
+<!-- 	<form action="http://192.168.0.104:8021/openidAuth" method="get" id="openid_form"> -->
+	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form">
+		<input type="hidden" name="action" value="verify" />
+		<p>To access your apps you must log in with the same OpenID Provider used for Desktop AppLaud.</p>
+		<fieldset>
+			<div id="openid_choice">
+ 				<p>Select your account provider:</p>
+				<div id="openid_btns"></div>
+			</div>
+<!-- 			<div id="openid_input_area"> -->
+<!-- 				<input id="openid_identifier" name="openid_identifier" type="text" value="http://" /> -->
+<!-- 				<input id="openid_submit" type="submit" value="Sign-In"/> -->
+<!-- 			</div> -->
+		</fieldset>
+	<p>Visit the Menu page for more about OpenID Secure Login.
+	</form>
+    </div><!-- /content -->    
+	<div data-role="footer" data-theme="c" data-position="fixed" data-id="appfooter">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page-home">My Apps</a></li>
+				<li><a href="#page-guest">Demo Apps</a></li>
+				<li><a href="#dialog-devmenu" data-rel="dialog" class="show-help">Help</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+    </div><!-- /page-login -->
+    
+    <div data-role="page" id="page-guest" data-theme="c">
+  	<div data-role="header" data-theme="c">
+		<a href="#page-home" data-icon="back" data-rel="back" data-iconpos="notext" data-theme="c"></a>
+    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username user-style"></span></h1> 
+		<a href="#dialog-devmenu" data-rel="dialog" data-icon="grid" data-iconpos="notext" class="ui-btn-right" data-theme="d"></a>
+	</div>
+
+    <div data-role="content">    
+    <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">    
+    <h4>AppLaud Demos</h4> 
+    <p>Does not require account or login.<p>
+    <p>Tap on a demo app to run it.</p>
+    <p>Tap on an APK to download/install it on this device, then run it from downloads menu.</p>
+    
+    <p>Refreshing demos is typically only needed after network issues.</p>
+		<div id="refresh_demos" data-role="button" data-theme="c">Refresh Demos</div>
+    </div>
+
+	<ul id="demo_project_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
+		<li data-role="list-divider">Demo Projects <span class="grey">Tap to Run</span></li>
+		<li id="li-placeholder3" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
+	</ul>
+
+	<ul id="demo_apk_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
+		<li data-role="list-divider">Demo APKs <span class="grey">Tap to Install and Run</span></li>
+		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a>
+		</li>
+	</ul>
+		    
+    </div><!-- /content -->
+	<div data-role="footer" data-theme="c" data-position="fixed" data-id="appfooter">
+		<div data-role="navbar">
+			<ul>
+				<li><a href="#page-home">My Apps</a></li>
+				<li><a href="#page-guest">Demo Apps</a></li>
+				<li><a href="#dialog-devmenu" data-rel="dialog" class="show-help">Help</a></li>
+			</ul>
+		</div><!-- /navbar -->
+	</div><!-- /footer -->
+	</div><!-- /page -->
+        
+    <div data-role="page" id="dialog-devmenu" data-theme="c">
+  	<div data-role="header" data-theme="a">
+    	<h1><em>App</em><span style="color:#777;">Laud Cloud Menu</span></h1> 
+	</div>
+    <div data-role="content" data-theme="c">
+    
+	<p>AppLaud Cloud User: <span class="username user-style">Guest</span><br>
+	OpenId Provider:
+	<span id="useropenid" class="user-style">&#40Not Set&#41</span></p>
+
+	<div data-role="collapsible" class="allcollapse" id="devmenu-help" data-theme="c" data-content-theme="c" data-collapsed="true">
+				<h3>Help with AppLaud App</h3>
+				<p>The AppLaud App has two main functionalities - each
+					represented by a navigation page.</p>
+				
+				<ul>
+					<li>The My Apps Page works in conjunction with the AppLaud Cloud to run and
+						debug a developers project. It can run pure JavaScript Android
+						PhoneGap apps directly from the cloud. No download or install is
+						necessary. The Download APKs feature enables downloading and running any built
+						Android app in the developer's workspace on the device.</li>
+					<li>The Demo Page will run or download several different apps that
+						illustrate PhoneGap and jQuery Mobile's capabilities.</li>
+				</ul>
+				
+					<p style="margin-top:0.4em;margin-bottom:0em;"><span style="color:#008595;"><em>IMPORTANT: </em></span>Required Settings</p>
+		<ul style="line-height:1.2em;margin-top:0.2em;margin-bottom:0.3em;">
+			<li><span style="color:#777;">Wifi or Carrier Connection</span></li>
+			<li>Application Settings: <span style="color:#777;">Allow installation of non-Market applications</span></li>
+		</ul>			
+				
+				<p>More help available at this <a href="http://applaudcloud.com/app.html">link</a> </p>
+	</div>
+		
+    <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
+		<h3>Login / Logout</h3>
+		<p>To login or change OpenId Provider, go to the Login Page.</p>
+		<p><strong>Important:</strong> You must use the same OpenID Provider used to register with AppLaud.</p>
+		<div href="#page-login" data-role="button" class="goto_login" data-theme="c">Go To Login Page</div>
+		<p>Logging out is only necessary if others have access to your device</p>
+		<div id="logout" data-role="button" data-theme="c">Log out</div>
+	</div>    
+
+    <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
+		<h3>Home Page</h3>
+		<p>Go to this page on launch.</p>
+		<label for="select-home-page" class="select">Select home page:</label>
+		<select name="select-home-page" id="select-home-page">
+			<option value="page-home">My Apps</option>
+			<option value="page-guest">Demo Apps</option>
+		</select>
+		<hr>
+		<div data-role="button" id="go_to_homepage" data-theme="c">Go to Homepage</div>
+		<div></div>
+	</div>
+
+<!--     <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
+		<h3>Local Data</h3>
+		<p>Clear all locally stored data.</p>
+		<p><strong>Note:</strong> For development only. clears provider and home page but not openid auth.</p>
+		<div data-role="button" id="clear_dev_data" data-theme="c">Clear All Data</div>
+	</div>    -->	
+
+    <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
+		<h3>About OpenID</h3>
+			<p>OpenID is service that allows you to log-on to many different websites using a single indentity.</p>
+			<p>Find out <a href="http://openid.net/what/">more about OpenID</a> and <a href="http://openid.net/get/">how to get an OpenID enabled account</a>.</p>
+	</div>
+	
+	<div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
+		<h3>About AppLaud Cloud</h3>
+
+	<p style="margin-top:0.4em;margin-bottom:0em;"> This app was created by <a href="http://twitter.com/#!/libbybaldwin">Libby Baldwin</a> and
+		<a href="https://github.com/paulb777">Paul Beusterien</a>
+		of <span style="color:#008595;"><a href="http://www.mobiledevelopersolutions.com/">Mobile Developer Solutions</a></span>.</p>
+		<ul style="line-height:1.4em;margin-bottom:0.3em;margin-top:0.2em;">
+			<li><a href="http://www.applaudcloud.com">Applaud Cloud</a></li>
+			<li><a href="http://www.phonegap.com/">PhoneGap</a></li>
+			<li><a href="http://www.jquerymobile.com/">jQuery Mobile Frameworks</a></li>
+		</ul>			
+
+	</div>
+	<a href="#page-home" data-role="button" data-inline="true" data-rel="back">Close</a>
+	</div><!-- /content -->
+	</div>    
+  </body>
+</html>
