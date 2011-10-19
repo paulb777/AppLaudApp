@@ -14,7 +14,7 @@ Android app in the developer's workspace on the device.
 * The Demo Page will run or download several different apps that
 illustrate PhoneGap and jQuery Mobile's capabilities.
 
-More information about the app available [here](http://www.applaudcloud.com/app.html)
+More information about the app available [here](http://applaudcloud.com/applauddoc.html#app-download)
 
 Download a built version
 --------
@@ -22,6 +22,7 @@ Download a built version
 If you want to download an already built Android .apk file, it is available for download
 
 * Click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
+* Scan the QR code [here](http://applaudcloud.com/applauddoc.html#app-download)
 * Android Market (coming soon)
 
 Building the app
@@ -52,4 +53,4 @@ More Info
 --------------------
 
 * [AppLaud Cloud home page](http://www.applaudcloud.com)
-* [Mailing list](https://groups.google.com/forum/#!forum/applaud-cloud)
+* [Forum](https://groups.google.com/forum/#!forum/applaud-cloud)
