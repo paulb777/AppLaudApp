@@ -41,7 +41,7 @@ Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and A
 * Click Import Project
 * Now the package needs to be changed so the new app doesn't conflict with the original
 * Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
-* Navigate to src/mds/applaud. Right click on applaud and select Rename. Change to applaud2
+* Navigate to src/com/mds/applaud. Right click on applaud and select Rename. Change to applaud2
 * Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;
 * Select Package -> Basic Build
 * Wait a few minutes for a pop-up indicating the build is done.
@@ -54,3 +54,4 @@ More Info
 
 * [AppLaud Cloud home page](http://www.applaudcloud.com)
 * [Forum](https://groups.google.com/forum/#!forum/applaud-cloud)
+
