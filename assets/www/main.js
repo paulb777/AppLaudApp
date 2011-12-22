@@ -20,7 +20,7 @@
 
 
 var serverUrl = 'http://applaudcloud.com:80';
-//var serverUrl = 'http://192.168.0.107:8013';
+//var serverUrl = 'http://192.168.0.104:8027';
 
 function showMenu() {
     $.mobile.changePage('#dialog-devmenu', { role: 'dialog', changeHash : 'false' });
