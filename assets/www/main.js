@@ -19,11 +19,11 @@
 //    THE SOFTWARE.
 
 
-var serverUrl = 'http://applaudcloud.com:80';
-//var serverUrl = 'http://192.168.0.104:8027';
+//var serverUrl = 'http://applaudcloud.com:80';
+var serverUrl = 'http://www.yourserver.com';
 
 function showMenu() {
-    $.mobile.changePage('#dialog-devmenu', { role: 'dialog', changeHash : 'false' });
+    $.mobile.changePage($('#dialog-devmenu'), { role: 'dialog' });
 }
 
 function fadingMsg (locMsg) {
@@ -42,11 +42,6 @@ function setUser(user) {
 
 function go() {
     console.log("AppLaudLog: go"); // and userAgent: " + navigator.userAgent);
-    
-    // workaround for PhoneGap 1.1 regression - 
-    // see http://forum.jquery.com/topic/back-button-does-not-work-with-phonegap-1-1-0
-    // Without this The Close and 'x' don't work on the menu
-    window.history.back = navigator.app.origHistoryBack;   
 
     document.addEventListener("menubutton", showMenu, false);
     
@@ -67,7 +62,7 @@ function go() {
                         $('#get_apk_list').removeClass('hidden');
                         $('#project_list').removeClass('hidden');
                         $('#apk_list').removeClass('hidden');
-                        $.mobile.changePage("#page-home", { changeHash : 'false' } );
+                        $.mobile.changePage($("#page-home"), { changeHash : false } );
                         console.log("AppLaudLog: setting username: " + r.user);
                         localStorage.applaud_username = r.user;
                         localStorage.applaud_session = r.session;
@@ -75,7 +70,7 @@ function go() {
                         $('#guest-user').html('<p><h4>Oops!</h4>Network failure during login process.</p>');
                         $('#guest-user').append('<p>Please try again later</p>');
                         $('#guest-user').show();
-                        $.mobile.changePage("#page-home", { changeHash : 'false' } ); 
+                        $.mobile.changePage($("#page-home"), { changeHash : false } ); 
                     }
                 });
            
@@ -89,7 +84,7 @@ function go() {
                 // Remove saved openid provider from locstore and $('span#useropenid').html();
                 $('#project_list').addClass('hidden');
                 $('#apk_list').addClass('hidden');
-                $.mobile.changePage("#page-home", { changeHash : 'false' } );
+                $.mobile.changePage($("#page-home"), { changeHash : false } );
 //            } else {
                 // The other loc changes are part of openid.. or are they?
 //                console.log("AppLaudLog: Changed to unknown location.")
@@ -110,7 +105,7 @@ function go() {
             myselect.selectmenu();
             myselect[0].selectedIndex = 1;
             myselect.selectmenu("refresh");
-            $.mobile.changePage('#' + locStoreHome );
+            $.mobile.changePage($('#' + locStoreHome ));
         }
         $('#fading_msg').remove();
     } else {
@@ -126,7 +121,7 @@ function go() {
             if (r.loggedOut) {
                 delete localStorage.applaud_username;
                 delete localStorage.applaud_session;
-                $.mobile.changePage('#page-login', { changeHash : false });
+                $.mobile.changePage($('#page-login'), { changeHash : false });
             } else {
                 if (r.newSession) {
                     localStorage.applaud_session = r.newSession;
@@ -144,7 +139,7 @@ function go() {
     } else {
         delete localStorage.applaud_username;
         delete localStorage.applaud_session;
- //       $.mobile.changePage('#page-login', { changeHash : false });
+ //       $.mobile.changePage($('#page-login'), { changeHash : false });
     }   
 }
 

@@ -40,11 +40,11 @@ $('#dialog-devmenu').live('pageinit', function(event){
     
     $('#go_to_homepage').click(function() {
         var home = $('select#select-home-page').val();
-        $.mobile.changePage("#" + home, { transition: "slide"} );
+        $.mobile.changePage($("#" + home));
     });
     
     $('.goto_login').click(function() {
-        $.mobile.changePage('#page-login', { changeHash : false });
+        $.mobile.changePage($('#page-login'), { changeHash : false });
         console.log("AppLaudLog: using changePage to go to login");
         return false;
     });
@@ -64,7 +64,7 @@ $('#dialog-devmenu').live('pageinit', function(event){
         $.post(serverUrl + "/logout");
         delete localStorage.applaud_username;
         delete localStorage.applaud_session;
-        $.mobile.changePage('#page-login', { changeHash : false });
+        $.mobile.changePage($('#page-login'), { changeHash : false });
         setUser('Logged Out');
     });
 });
