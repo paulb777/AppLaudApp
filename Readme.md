@@ -1,7 +1,7 @@
 AppLaud App
 ============================
 
-The AppLaud App is an Android App that works with [AppLaud Cloud](http://www.applaudcloud.com) 
+The AppLaud App version 1.1 is an Android App that works with [AppLaud Cloud](http://www.applaudcloud.com) 
 to create a fast Android development environment.
 
 The AppLaud App has two main functionalities - each represented by a navigation page.
@@ -34,12 +34,12 @@ have been tested. Alternatively, see the next section ...
 Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and AppLaud App
 --------------------
 
-* Click the ZIP button above
+* Click the ZIP button above to download the zipfile
 * Go to [AppLaud Cloud](http://www.applaudcloud.com) and login
 * Choose New -> Import Project
-* Select the zipfile you just created and give the project a name.
+* Select the zipfile you just created and give the project a name
 * Click Import Project
-* Now the package needs to be changed so the new app doesn't conflict with the original
+* The package (com.mds.applaud) must be changed so the new app doesn't conflict with the original
 * Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
 * Navigate to src/com/mds/applaud. Right click on applaud and select Rename. Change to applaud2
 * Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;

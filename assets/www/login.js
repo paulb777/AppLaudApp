@@ -58,6 +58,6 @@ $('#page-login').live( 'pageinit',function(event){
 function onLogin (btn) {
     if (btn === 1) {
         console.log("AppLaudLog: onLogin");
-        $.mobile.changePage('#page-login', { changeHash : false });
+        $.mobile.changePage($('#page-login'), { changeHash : false });
     }
 }
