@@ -11,7 +11,7 @@
     
     <script type="text/javascript" src="jquery.mobile/jquery-1.6.4.min"></script>
     <script type="text/javascript">
- 	$(document).bind("mobileinit", function(){
+ 	    $(document).bind("mobileinit", function(){
             $.mobile.defaultDialogTransition = "none";
             $.mobile.defaultPageTransition = "none";
         });
@@ -46,7 +46,7 @@
     <p><h4>Welcome New User!</h4>
  		<strong>Registered AppLaud Cloud Users</strong><br>
  		To access your AppLaud apps:         
-		<a href="#page-login" data-role="button" data-theme="c" class="goto_login">Go To Login Page</a></p>
+		<a href="#page-login" data-role="button" data-theme="c" class="goto_login">Go To Login Page</a>
 	
 		<p><strong>New or Non-Registered Users</strong><br>
 		To run AppLaud Demos (no login needed):        
@@ -131,7 +131,7 @@
     <div data-role="content">    
     <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">    
     <h4>AppLaud Demos</h4> 
-    <p>Does not require account or login.<p>
+    <p>Does not require account or login.</p>
     <p>Tap on a demo app to run it.</p>
     <p>Tap on an APK to download/install it on this device, then run it from downloads menu.</p>
     
@@ -170,7 +170,7 @@
     
 	<p>AppLaud Cloud User: <span class="username user-style">Guest</span><br>
 	OpenId Provider:
-	<span id="useropenid" class="user-style">&#40Not Set&#41</span></p>
+	<span id="useropenid" class="user-style">&#40;Not Set&#41;</span></p>
 
 	<div data-role="collapsible" class="allcollapse" id="devmenu-help" data-theme="c" data-content-theme="c" data-collapsed="true">
 				<h3>Help with AppLaud App</h3>
@@ -200,7 +200,7 @@
 		<h3>Login / Logout</h3>
 		<p>To login or change OpenId Provider, go to the Login Page.</p>
 		<p><strong>Important:</strong> You must use the same OpenID Provider used to register with AppLaud.</p>
-		<div href="#page-login" data-role="button" class="goto_login" data-theme="c">Go To Login Page</div>
+		<a href="#page-login" data-role="button" class="goto_login" data-theme="c">Go To Login Page</a>
 		<p>Logging out is only necessary if others have access to your device</p>
 		<div id="logout" data-role="button" data-theme="c">Log out</div>
 	</div>    

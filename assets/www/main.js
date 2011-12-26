@@ -62,7 +62,7 @@ function go() {
                         $('#get_apk_list').removeClass('hidden');
                         $('#project_list').removeClass('hidden');
                         $('#apk_list').removeClass('hidden');
-                        $.mobile.changePage($("#page-home"), { changeHash : false } );
+                        $.mobile.changePage($("#page-home"));
                         console.log("AppLaudLog: setting username: " + r.user);
                         localStorage.applaud_username = r.user;
                         localStorage.applaud_session = r.session;
@@ -70,7 +70,7 @@ function go() {
                         $('#guest-user').html('<p><h4>Oops!</h4>Network failure during login process.</p>');
                         $('#guest-user').append('<p>Please try again later</p>');
                         $('#guest-user').show();
-                        $.mobile.changePage($("#page-home"), { changeHash : false } ); 
+                        $.mobile.changePage($("#page-home")); 
                     }
                 });
            
@@ -84,7 +84,7 @@ function go() {
                 // Remove saved openid provider from locstore and $('span#useropenid').html();
                 $('#project_list').addClass('hidden');
                 $('#apk_list').addClass('hidden');
-                $.mobile.changePage($("#page-home"), { changeHash : false } );
+                $.mobile.changePage($("#page-home"));
 //            } else {
                 // The other loc changes are part of openid.. or are they?
 //                console.log("AppLaudLog: Changed to unknown location.")
