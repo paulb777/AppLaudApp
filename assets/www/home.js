@@ -129,7 +129,7 @@ $('#page-home').live('pageinit', function(event){
     
     $('.apks').live('click', function() {
         var id = $(this).attr('id');
-        window.open(serverUrl + '/downloadApk' + '?file=' + apkMap[id] + '&user=' + apkUser + '&session=' + apkSession);
+        window.plugins.childBrowser.openExternal(serverUrl + '/downloadApk' + '?file=' + apkMap[id] + '&user=' + apkUser + '&session=' + apkSession);
     });
 
     $('#get_apk_list').click(function() {

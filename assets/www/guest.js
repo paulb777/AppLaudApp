@@ -105,7 +105,7 @@ $('#page-guest').live('pageinit', function(event){
         
         $('.demoapks').live('click', function() {
             var id = $(this).attr('id');
-            window.open(serverUrl + '/downloadDemoApk' + '?file=' + apkMap[id]);
+            window.plugins.childBrowser.openExternal(serverUrl + '/downloadDemoApk' + '?file=' + apkMap[id]);
         });
 
         var showedApkError = false;
