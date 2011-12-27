@@ -37,7 +37,7 @@ Building the app
 --------------------
 
 The app is buildable in any standard Android development environment. In addition to AppLaud Cloud, Eclipse ADT (New > Android Project) and the command line 
-will work. See the next section for building on AppLaud Cloud ...
+will work. See the next section for building on AppLaud Cloud.
 
 Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and AppLaud App
 --------------------
@@ -48,12 +48,12 @@ Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and A
 * Select the zipfile and give the project a name
 * Click Import Project
 * Customize the new version of the app:
-* * AndroidManifest.xml: Change the package name at line 3 to com.mds.applaud2 (or anything you like)
-* * /src/com/mds/applaud: Right click on applaud (directory) and select Rename. Change to applaud2
-* * /src/com/mds/applaud2/AppLaudAppActivity.java: Change line 1 to com.mds.applaud2
-* * /assets/www/index.html: Line 96: Modify form's action value as needed
-* * /assets/www/main.js: Line 23: Modify serverUrl value as needed
-* * /res/phonegap.xml: Add or modify origin urls as needed
+    * AndroidManifest.xml: Change the package name at line 3 to com.mds.applaud2 (or anything you like)
+    * /src/com/mds/applaud: Right click on applaud (directory) and select Rename. Change to applaud2
+    * /src/com/mds/applaud2/AppLaudAppActivity.java: Change line 1 to com.mds.applaud2
+    * /assets/www/index.html: Line 96: Modify form's action value as needed
+    * /assets/www/main.js: Line 23: Modify serverUrl value as needed
+    * /res/phonegap.xml: Add or modify origin urls as needed
 * Build the .apk file: Package -> Basic Build
 * From the original AppLaud App go to My Apps page
 * When the build completes, select Refresh APK List to access .apk file
