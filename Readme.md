@@ -19,35 +19,45 @@ More information about the app available [here](http://applaudcloud.com/applaudd
 Download a built version
 --------
 
-If you want to download an already built Android .apk file, it is available for download
+To download as an app (.apk file) to an Android 2.1+ device:
 
 * [Android Market](https://market.android.com/details?id=com.mds.applaud)
-* Click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
-* Scan the QR code [here](http://applaudcloud.com/applauddoc.html#app-download)
+* Or click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
+* Or scan the QR code [here](http://applaudcloud.com/applauddoc.html#app-download)
+
+Version 1.1
+-------------------
+* PhoneGap 1.3.0
+* jQuery Mobile 1.0
+* PhoneGap Child Browser Plugin
+* Open ID Authentication
+* Forms and Ajax
 
 Building the app
 --------------------
 
-The app is buildable in any standard Android development environment. Eclipse ADT and the command line 
-have been tested. Alternatively, see the next section ...
+The app is buildable in any standard Android development environment. In addition to AppLaud Cloud, Eclipse ADT (New > Android Project) and the command line 
+will work. See the next section for building on AppLaud Cloud ...
 
 Building and Bootstrapping a new version of AppLaud App with AppLaud Cloud and AppLaud App
 --------------------
 
 * Click the ZIP button above to download the zipfile
-* Go to [AppLaud Cloud](http://www.applaudcloud.com) and login
+* Go to [AppLaud Cloud](http://www.applaudcloud.com) and log in
 * Choose New -> Import Project
-* Select the zipfile you just created and give the project a name
+* Select the zipfile and give the project a name
 * Click Import Project
-* The package (com.mds.applaud) must be changed so the new app doesn't conflict with the original
-* Open AndroidManifest.xml and change the package name at line 3 to com.mds.applaud2 (or anything you like)
-* Navigate to src/com/mds/applaud. Right click on applaud and select Rename. Change to applaud2
-* Open applaud2/AppLaudAppActivity.java and change line 1 to com.mds.applaud2;
-* Select Package -> Basic Build
-* Wait a few minutes for a pop-up indicating the build is done.
-* In the meantime, navigate the original AppLaud App to the My Apps page
-* After the build completes, select Refresh APK List on the App
-* Click your project name and install and run the new app
+* Customize the new version of the app:
+* * AndroidManifest.xml: Change the package name at line 3 to com.mds.applaud2 (or anything you like)
+* * /src/com/mds/applaud: Right click on applaud (directory) and select Rename. Change to applaud2
+* * /src/com/mds/applaud2/AppLaudAppActivity.java: Change line 1 to com.mds.applaud2
+* * /assets/www/index.html: Line 96: Modify form's action value as needed
+* * /assets/www/main.js: Line 23: Modify serverUrl value as needed
+* * /res/phonegap.xml: Add or modify origin urls as needed
+* Build the .apk file: Package -> Basic Build
+* From the original AppLaud App go to My Apps page
+* When the build completes, select Refresh APK List to access .apk file
+* Click on project name to start download; Check device notification (top bar) for download status and to install the new app
 
 More Info
 --------------------
