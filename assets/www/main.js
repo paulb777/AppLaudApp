@@ -20,7 +20,7 @@
 
 
 //var serverUrl = 'http://applaudcloud.com:80';
-var serverUrl = 'http://www.yourserver.com';
+var serverUrl = 'http://192.168.0.104:8027';
 
 function showMenu() {
     $.mobile.changePage($('#dialog-devmenu'), { role: 'dialog' });
@@ -49,7 +49,7 @@ function go() {
         window.plugins.childBrowser.onLocationChange = function(loc){
             console.log("AppLaudLog: onLocationChange : " + loc);
             
-            if (loc === (serverUrl + '/loginresult.html')) {
+            if (/\/loginresult.html$/.test(loc) ) {
                 window.plugins.childBrowser.close();
                 console.log('before $.get');
 
@@ -74,7 +74,7 @@ function go() {
                     }
                 });
            
-            } else if (loc.indexOf(serverUrl + '/loginresult.html?email') === 0) {
+            } else if (loc.indexOf('/loginresult.html?email') > 0) {
                 window.plugins.childBrowser.close();
                 $('#guest-user').html('<p><h4>Oops!</h4>You are not registered with AppLaud for that OpenID Provider.</p>');
                 $('#guest-user').append('<p>No login is needed to use the Demo Apps page.</p>');
