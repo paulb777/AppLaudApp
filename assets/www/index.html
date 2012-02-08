@@ -1,11 +1,13 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta name="viewport" content="width=screen.width; user-scalable=no" />
+    <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+  
+<!--     <meta name="viewport" content="width=device-width; user-scalable=no" /> -->
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>AppLaud App</title>
     
-    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.min.css" type="text/css"/>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.1.css" type="text/css"/>
     <link rel="stylesheet" href="applaudapp.css" type="text/css" />
     <link type="text/css" rel="stylesheet" href="openid/css/openid.css" />
     
@@ -16,8 +18,8 @@
             $.mobile.defaultPageTransition = "none";
         });
     </script>
-    <script src="jquery.mobile/jquery.mobile-1.0.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="phonegap-1.3.0.js"></script>
+    <script src="jquery.mobile/jquery.mobile-1.0.1.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
     <script type="text/javascript" charset="utf-8" src="childbrowser.js"></script>
   
     <script type="text/javascript" src="jquery.mobile/jquery.form.js"></script>
@@ -58,12 +60,26 @@
     	<p>See Menu for more information.</p>
    	</div><!-- /new-user -->
 	   
-    <a data-role="button" data-icon="refresh" id="get_project_list">Refresh Project List</a>    
+    <a data-role="button" data-icon="refresh" id="get_project_list">Refresh Project List</a>  
+    <!-- NEW -->  
+	<div id="project_list_container" data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c">
+		<h2>My Projects <span class="grey">Tap to Run; Toggle Weinre</span></h2>
+
+		<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
+<!-- 		<ul data-role="listview" data-theme="b" data-dividertheme="b"> -->
+<!-- 					<li id="listdivider" data-role="list-divider">PhoneGap API</li> -->
+			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
+
+		</ul>
+	</div>
+
+    <!-- OLD  
 	<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
 		<li data-role="list-divider">My Projects <span class="grey">Tap to Run; Toggle Weinre</span></li>
 		<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a>
 		<a href="#"></a></li>
 	</ul>
+	--> 
         
     <div data-role="button" data-icon="refresh" id="get_apk_list">Refresh APK List</div>
 	<ul id="apk_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
@@ -93,9 +109,9 @@
 	<h4>AppLaud App Login</h4>
 	
 	<!-- Simple OpenID Selector -->
-<!-- 	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form"> -->
-	<form action="http://yoursite.com/openidAuth" method="get" id="openid_form"> 
-		<input type="hidden" name="action" value="verify" />
+ 	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form">
+<!-- 	<form action="http://http://192.168.0.104:8027/openidAuth" method="get" id="openid_form"> 
+ -->		<input type="hidden" name="action" value="verify" />
 		<p>To access your apps you must log in with the same OpenID Provider used for Desktop AppLaud.</p>
 		<fieldset>
 			<div id="openid_choice">

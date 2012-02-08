@@ -19,8 +19,8 @@
 //    THE SOFTWARE.
 
 
-//var serverUrl = 'http://applaudcloud.com:80';
-var serverUrl = 'http://192.168.0.104:8027';
+var serverUrl = 'http://applaudcloud.com'; // :80';
+//var serverUrl = 'http://192.168.0.104:8027';
 
 function showMenu() {
     $.mobile.changePage($('#dialog-devmenu'), { role: 'dialog' });
@@ -140,10 +140,61 @@ function go() {
         delete localStorage.applaud_username;
         delete localStorage.applaud_session;
  //       $.mobile.changePage($('#page-login'), { changeHash : false });
-    }   
+    }
+
+    // Populate the project list from localStorage and expand list
+        var i, length, listLocal = []; 
+        listLocal = JSON.parse(localStorage.applaud_project_list);
+        length = listLocal.length;
+        if (length > 0) {
+            console.log("*** listLocal.length: " + listLocal.length);
+            $('#li-placeholder1').css('display', 'none');
+            //$('li.project_item').remove();
+            $('#project_list_container').trigger('expand');
+            for (i = 0 ; i < length ; i++) {            
+            $('<li class="project_item"><a href="#" class="projects"><h3>' +
+                    listLocal[i].project +
+                    '</h3></a><a href="#" id="weinre_btn_' +
+                    listLocal[i].project.replace(' ','') + '"></a></li>').appendTo('ul#project_list');            
+            $('#weinre_btn_' + listLocal[i].project.replace(' ','')).toggle(function() {        
+                $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinreblue18x18.png)');                
+              }, function() {
+                  $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
+              });
+          }
+        $("ul#project_list").listview('refresh');
+        $('#fading_msg').remove();
+        } else {
+            $('#fading_msg').remove();
+        }
 }
 
 
 function init() {
     document.addEventListener("deviceready", go, true);
+    
+/*    if (device.name === "GT-P7510") {
+        var getScreenHeightx = function() {
+            var orientation     = $.event.special.orientationchange.orientation(),
+                port            = orientation === "landscape", // "portrait",
+                winMin          = port ? 480 : 320,
+                screenHeight    = port ? screen.availHeight : screen.availWidth,
+                winHeight       = Math.max( winMin, $( window ).height() ),
+                pageMin         = Math.min( screenHeight, winHeight );
+console.log("*** orientation: " + orientation + " *** pageMin: " + pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
+            return pageMin;
+        };
+        var resetActivePageHeightx = function(){
+            // Don't apply this height in touch overflow enabled mode
+            if( $.support.touchOverflow && $.mobile.touchOverflowEnabled ){
+                return;
+            }
+            $( "." + $.mobile.activePageClass ).css( "min-height", getScreenHeightx() );
+        };
+        //set page min-heights to be device specific
+        $( document ).bind( "pageshow", resetActivePageHeightx );
+        $( window ).bind( "throttledresize", resetActivePageHeightx );
+        // end Samsung Galaxy Tab 10.1 fix       
+    } 
+*/
 }

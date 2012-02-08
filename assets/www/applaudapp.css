@@ -5,9 +5,11 @@ h4 {color:#466;margin-top:.5em;margin-bottom:.6em;}
 h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 .user-style {color:#126686; font-weight: bold; }
 
-.grey {color:#aaa};
+.ui-collapsible-heading {font-size: 14px;}
+.grey {color:#aaa; font-size: 12px;}
 
 /* listview items: height shorter, text area wider !imporant: keep this order */
+.ui-btn-inner {padding-right:10px;}
 .ui-li .ui-btn-inner a.ui-link-inherit { padding: .3em 15px .3em 10px; }
 .ui-li-has-alt .ui-btn-inner a.ui-link-inherit { padding-right: 40px; }
 
@@ -29,6 +31,14 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 /*  padding: 10px 0 10px 8px; padding: 5px 0 5px 6px;*/
 .ui-collapsible-content { padding: 5px 5px 5px 6px; }
 /* .ui-collapsible { margin: .5em 7px; } */
+
+#project_list_container {
+	margin: .5em;
+}
+#project_list_container .ui-collapsible-heading { /* doesn't work */
+	-webkit-border-radius: 				1em /*{global-radii-buttons}*/;
+	border-radius: 						1em /*{global-radii-buttons}*/;
+}	
 
 #page-home, #page-guest { 
 	background-image:url(images/appbkgrnd.png); 

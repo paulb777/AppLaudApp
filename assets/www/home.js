@@ -22,7 +22,6 @@
 // Manage the My Apps page
 
 $('#page-home').live('pageinit', function(event){
-    
     fadingMsg('Loading Settings..');
     
     $('.projects').live('click', function() {
@@ -33,7 +32,11 @@ $('#page-home').live('pageinit', function(event){
         navigator.app.loadUrl(link + "/assets/www/index.html");
         return false;
     });
-    
+        
+    var saveLocalProjectList = function (list) {
+        localStorage.applaud_project_list = JSON.stringify(list);               
+    };
+
     var buildProjectList = function(list) {        
         var i;
         for(i = 0 ; i < list.length; i++) {
@@ -61,6 +64,7 @@ $('#page-home').live('pageinit', function(event){
                 if (r.success) {
                     $('#li-placeholder1').css('display', 'none');
                     buildProjectList(r.list);
+                    saveLocalProjectList(r.list);
                 } else {
                     $('#li-placeholder1').css('display', 'block');
                     if (r.error === 'Authentication failed. Please re-login.') {
