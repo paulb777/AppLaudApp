@@ -1,7 +1,12 @@
 AppLaud App
 ============================
 
-The AppLaud App version 1.1 is an Android App that works with [AppLaud Cloud](http://www.applaudcloud.com) 
+**February 8, 2012** *Version 1.4 : Work in Progress*
+ * Updating App: PhoneGap 1.4.1, jQuery Mobile 1.0.1, Resolving Issues
+ * Use at your own risk
+ * Android Market App is Version 1.3 (latest)
+
+The AppLaud App version 1.3 is an Android App that works with [AppLaud Cloud](http://www.applaudcloud.com) 
 to create a fast Android development environment.
 
 The AppLaud App has two main functionalities - each represented by a navigation page.
@@ -25,7 +30,7 @@ To download as an app (.apk file) to an Android 2.1+ device:
 * Or click [here](http://www.applaudcloud.com/app.apk) to download from http://www.applaudcloud.com.
 * Or scan the QR code [here](http://applaudcloud.com/applauddoc.html#app-download)
 
-Version 1.1
+Version 1.3
 -------------------
 * PhoneGap 1.3.0
 * jQuery Mobile 1.0
