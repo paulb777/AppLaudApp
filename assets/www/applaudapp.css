@@ -7,17 +7,16 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 
 /* .ui-collapsible-heading { font-size: 14px; margin-left: 0px; margin-right: 0px;}
  */
- .grey {color:#aaa; font-size: 12px; text-shadow: none; }
-
+.grey {color:#aaa; font-size: 12px; text-shadow: none; }
+.mycount {color: #043d46;}
 /* listview items: height shorter, text area wider !imporant: keep this order */
-.ui-btn-inner {padding-right:10px;}
+.ui-btn-inner {padding-right:10px; padding-top: .55em; padding-bottom: .55em;}
 .ui-li .ui-btn-inner a.ui-link-inherit { padding: .3em 15px .3em 10px; }
 .ui-li-has-alt .ui-btn-inner a.ui-link-inherit { padding-right: 40px; }
 
 .ui-icon-weinre {background-image: url(images/weinregrey18x18.png);}
 
 .ui-header .ui-title {margin-right:20px;margin-left:20px;}
-/* JQM: margin-left, margin-right: 90px */
 
  .ui-footer .ui-title {
 	margin-right:20px;
@@ -33,16 +32,18 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 .ui-collapsible-content { padding: 5px 5px 5px 6px; }
 /* .ui-collapsible { margin: .5em 7px; } */
 
-#project_list_container {
+#get_project_list, #get_apk_list { color: #666; }
+
+#project_list_container, #apk_list_container {
 	margin: .5em 8px;
 	padding-left: 0px;
 	padding-right: 4px;
 }
-#project_list_container .ui-collapsible-content { padding: 0px; }
+#project_list_container .ui-collapsible-content,
+#apk_list_container .ui-collapsible-content { padding: 0px; }
 
-#project_list_container .ui-collapsible-heading {
-	font-size: 14px;
-}
+#project_list_container .ui-collapsible-heading,
+#apk_list_container .ui-collapsible-heading { font-size: 14px; line-height: 25px;}
 
 .ui-content .ui-listview-inset { margin-bottom: 0px;}
 

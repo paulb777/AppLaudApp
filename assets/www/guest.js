@@ -65,8 +65,8 @@ $('#page-guest').live('pageinit', function(event){
                 if (!showedError) {
                     var errormsg;
                     showedError = true;
-                    if (errorThrown === '') errormsg = 'Check network connection.';
-                    else errormsg = errorThrown;
+                    if (errorThrown === '') { errormsg = 'Check network connection.'; }
+                    else { errormsg = errorThrown; }
                     navigator.notification.alert(
                             'Error: ' + errormsg,
                             null, 
@@ -135,8 +135,8 @@ $('#page-guest').live('pageinit', function(event){
             error : function(jqXHR, textStatus, errorThrown) {
                 if (!showedApkError) {
                     var errormsg;
-                    if (errorThrown === '') errormsg = 'Check network connection.';
-                    else errormsg = errorThrown;
+                    if (errorThrown === '') { errormsg = 'Check network connection.'; }
+                    else { errormsg = errorThrown; }
                     navigator.notification.alert(
                             'Error: ' + errormsg,
                             null,

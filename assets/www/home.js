@@ -50,6 +50,11 @@ $('#page-home').live('pageinit', function(event){
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
         }
+        if (i > 1) {
+            $('#my_project_cnt').html(i + " Projects");
+            $('#project_list_container').css('visibility', 'visible');
+            $('#project_list_container').trigger('expand');
+        }
     };
     
     $('#get_project_list').live('click', function() {
@@ -66,6 +71,7 @@ $('#page-home').live('pageinit', function(event){
                     buildProjectList(r.list);
                     saveLocalProjectList(r.list);
                 } else {
+                    $('#project_list_container').css('visibility', 'hidden');
                     $('#li-placeholder1').css('display', 'block');
                     if (r.error === 'Authentication failed. Please re-login.') {
                         navigator.notification.confirm(
@@ -129,6 +135,12 @@ $('#page-home').live('pageinit', function(event){
                     + appName + '<span class="grey"> ' + buildType 
                     + '</span></h3></a></li>').appendTo('ul#apk_list');
         }       
+        // is this ever called with 0 length list?
+        if (i >= 1) {
+            $('#my_apk_cnt').html(i + " APKs");
+            $('#apk_list_container').css('visibility', 'visible');
+            $('#apk_list_container').trigger('expand');
+        }
     };    
     
     $('.apks').live('click', function() {
@@ -151,6 +163,7 @@ $('#page-home').live('pageinit', function(event){
                     apkUser = r.user;
                     apkSession = r.session;
                 } else {
+                    $('#apk_list_container').css('visibility', 'hidden');
                     $('#li-placeholder2').css('display', 'block');
                     if (r.error === 'Authentication failed. Please re-login.') {
                         navigator.notification.confirm(
@@ -173,8 +186,8 @@ $('#page-home').live('pageinit', function(event){
             error : function(jqXHR, textStatus, errorThrown) {
                 if (!showedError) {
                     var errormsg;
-                    if (errorThrown === '') errormsg = 'Check network connection.';
-                    else errormsg = errorThrown;
+                    if (errorThrown === '') { errormsg = 'Check network connection.'; }
+                    else { errormsg =  errorThrown; }
                     alert('Get Apks Request returned with Error: ' + errormsg);
                     console.log('AppLaudLog: Get Apks returned with Error: ' + errormsg);
                     // no connection: error / blank                    
@@ -183,7 +196,7 @@ $('#page-home').live('pageinit', function(event){
             },
             complete : function(jqXHR, textStatus) {
                 $('#fading_msg').remove();
-                    $("ul#apk_list").listview('refresh');
+                $("ul#apk_list").listview('refresh');
                 if ((!showedError) && textStatus === 'error') {
                     console.log('AppLaudLog: Get Apks completed with Error.');
                 }

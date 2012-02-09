@@ -19,8 +19,8 @@
 //    THE SOFTWARE.
 
 
-var serverUrl = 'http://applaudcloud.com'; // :80';
-//var serverUrl = 'http://192.168.0.104:8027';
+//var serverUrl = 'http://applaudcloud.com'; // :80';
+var serverUrl = 'http://192.168.0.104:8027';
 
 function showMenu() {
     $.mobile.changePage($('#dialog-devmenu'), { role: 'dialog' });
@@ -143,13 +143,13 @@ function go() {
     }
 
     // Populate the project list from localStorage and expand list
-        var i, length, listLocal = []; 
-        listLocal = JSON.parse(localStorage.applaud_project_list);
-        length = listLocal.length;
-        if (length > 0) {
-            //console.log("Project list length: " + listLocal.length);
-            $('#li-placeholder1').css('display', 'none');
-            for (i = 0 ; i < length ; i++) {            
+    var i, length, listLocal = []; 
+    listLocal = JSON.parse(localStorage.applaud_project_list);
+    length = listLocal.length;
+    if (length > 0) {
+        //console.log("Project list length: " + listLocal.length);
+        $('#li-placeholder1').css('display', 'none');
+        for (i = 0 ; i < length ; i++) {            
             $('<li class="project_item"><a href="#" class="projects"><h3>' +
                     listLocal[i].project +
                     '</h3></a><a href="#" id="weinre_btn_' +
@@ -159,13 +159,16 @@ function go() {
               }, function() {
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
-          }
+        }
+        $('#my_project_cnt').html(i + " Projects");
+        $('#project_list_container').css('visibility', 'visible');
         $('#project_list_container').trigger('expand');
         $("ul#project_list").listview('refresh');
         $('#fading_msg').remove();
-        } else {
-            $('#fading_msg').remove();
-        }
+    } else {
+        $('#project_list_container').css('visibility', 'hidden');
+        $('#fading_msg').remove();
+    }
 }
 
 
