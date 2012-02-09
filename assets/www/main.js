@@ -147,10 +147,8 @@ function go() {
         listLocal = JSON.parse(localStorage.applaud_project_list);
         length = listLocal.length;
         if (length > 0) {
-            console.log("*** listLocal.length: " + listLocal.length);
+            //console.log("Project list length: " + listLocal.length);
             $('#li-placeholder1').css('display', 'none');
-            //$('li.project_item').remove();
-            $('#project_list_container').trigger('expand');
             for (i = 0 ; i < length ; i++) {            
             $('<li class="project_item"><a href="#" class="projects"><h3>' +
                     listLocal[i].project +
@@ -162,6 +160,7 @@ function go() {
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
           }
+        $('#project_list_container').trigger('expand');
         $("ul#project_list").listview('refresh');
         $('#fading_msg').remove();
         } else {

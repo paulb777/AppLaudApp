@@ -22,7 +22,7 @@
 // Manage the My Apps page
 
 $('#page-home').live('pageinit', function(event){
-    fadingMsg('Loading Settings..');
+        fadingMsg('Loading Project List..');
     
     $('.projects').live('click', function() {
         var proj_name = $(this).text();

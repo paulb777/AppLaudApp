@@ -61,26 +61,13 @@
    	</div><!-- /new-user -->
 	   
     <a data-role="button" data-icon="refresh" id="get_project_list">Refresh Project List</a>  
-    <!-- NEW -->  
-	<div id="project_list_container" data-role="collapsible" data-collapsed="true" data-theme="c" data-content-theme="c">
+	<div id="project_list_container" data-role="collapsible" class="ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
 		<h2>My Projects <span class="grey">Tap to Run; Toggle Weinre</span></h2>
-
 		<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
-<!-- 		<ul data-role="listview" data-theme="b" data-dividertheme="b"> -->
-<!-- 					<li id="listdivider" data-role="list-divider">PhoneGap API</li> -->
 			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
-
 		</ul>
 	</div>
-
-    <!-- OLD  
-	<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
-		<li data-role="list-divider">My Projects <span class="grey">Tap to Run; Toggle Weinre</span></li>
-		<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a>
-		<a href="#"></a></li>
-	</ul>
-	--> 
-        
+      
     <div data-role="button" data-icon="refresh" id="get_apk_list">Refresh APK List</div>
 	<ul id="apk_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
 		<li data-role="list-divider">My APKs <span class="grey">Tap to Install and Run</span></li>

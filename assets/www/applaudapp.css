@@ -5,8 +5,9 @@ h4 {color:#466;margin-top:.5em;margin-bottom:.6em;}
 h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 .user-style {color:#126686; font-weight: bold; }
 
-.ui-collapsible-heading {font-size: 14px;}
-.grey {color:#aaa; font-size: 12px;}
+/* .ui-collapsible-heading { font-size: 14px; margin-left: 0px; margin-right: 0px;}
+ */
+ .grey {color:#aaa; font-size: 12px; text-shadow: none; }
 
 /* listview items: height shorter, text area wider !imporant: keep this order */
 .ui-btn-inner {padding-right:10px;}
@@ -33,12 +34,17 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 /* .ui-collapsible { margin: .5em 7px; } */
 
 #project_list_container {
-	margin: .5em;
+	margin: .5em 8px;
+	padding-left: 0px;
+	padding-right: 4px;
 }
-#project_list_container .ui-collapsible-heading { /* doesn't work */
-	-webkit-border-radius: 				1em /*{global-radii-buttons}*/;
-	border-radius: 						1em /*{global-radii-buttons}*/;
-}	
+#project_list_container .ui-collapsible-content { padding: 0px; }
+
+#project_list_container .ui-collapsible-heading {
+	font-size: 14px;
+}
+
+.ui-content .ui-listview-inset { margin-bottom: 0px;}
 
 #page-home, #page-guest { 
 	background-image:url(images/appbkgrnd.png); 
