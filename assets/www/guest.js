@@ -49,10 +49,10 @@ $('#page-guest').live('pageinit', function(event){
             success : function(r, textStatus) {
                 $('li.demo_project_item').remove();
                 if (r.success) {
-                    $('#li-placeholder3').css('display', 'none');
+                    //$('#li-placeholder3').css('display', 'none');
                     buildDemoList(r.list);
                 } else {
-                    $('#li-placeholder3').css('display', 'block');
+                    //$('#li-placeholder3').css('display', 'block');
                         navigator.notification.alert(
                             r.error,
                             null, 
@@ -117,12 +117,12 @@ $('#page-guest').live('pageinit', function(event){
             success : function(r, textStatus) {
                 $('li.demo_apk_item').remove();
                 if (r.success) {
-                    $('#li-placeholder4').css('display', 'none');
+                    //$('#li-placeholder4').css('display', 'none');
                     buildDemoApkList(r.list);
                     apkUser = r.user;
                     apkSession = r.session;
                 } else {
-                    $('#li-placeholder4').css('display', 'block');
+                   //$('#li-placeholder4').css('display', 'block');
                     // r.error,  // message
                     navigator.notification.alert(
                             'No Demo APKs found.',

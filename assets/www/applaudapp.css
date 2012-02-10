@@ -1,14 +1,12 @@
-h1 {color:#5a9;} /* color:#6ba; */
-h4 {color:#466;margin-top:.5em;margin-bottom:.6em;}
+h1 {color:#5a9;} /* the lt green of "App" */
+/* h4 {color:#466;margin-top:.5em;margin-bottom:.6em;} */
 
-/* h3 is for project & apk lists */
-h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
-.user-style {color:#126686; font-weight: bold; }
-
-/* .ui-collapsible-heading { font-size: 14px; margin-left: 0px; margin-right: 0px;}
- */
+h3 {color:#68aa86;} /* project & apk lists: light green */
+#get_project_list, #get_apk_list, li a, .ui-btn-up-c { color: #666; }
 .grey {color:#aaa; font-size: 12px; text-shadow: none; }
-.mycount {color: #043d46;}
+.bleu {color:#126686; font-weight: bold; }
+/* .green {color:#0f522d;} */
+
 /* listview items: height shorter, text area wider !imporant: keep this order */
 .ui-btn-inner {padding-right:10px; padding-top: .55em; padding-bottom: .55em;}
 .ui-li .ui-btn-inner a.ui-link-inherit { padding: .3em 15px .3em 10px; }
@@ -31,8 +29,6 @@ h3 {color:#68aa86;} /* green: 689468  78a478 508e10*/
 /*  padding: 10px 0 10px 8px; padding: 5px 0 5px 6px;*/
 .ui-collapsible-content { padding: 5px 5px 5px 6px; }
 /* .ui-collapsible { margin: .5em 7px; } */
-
-#get_project_list, #get_apk_list { color: #666; }
 
 #project_list_container, #apk_list_container {
 	margin: .5em 8px;

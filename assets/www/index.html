@@ -37,7 +37,7 @@
 
     <div data-role="page" id="page-home" data-theme="c">
   	<div data-role="header" data-theme="c">
-    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username user-style"></span></h1> 
+    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username bleu"></span></h1> 
 		<a href="#dialog-devmenu" data-rel="dialog" data-icon="grid" data-iconpos="notext" class="ui-btn-right" data-theme="d"></a>
 	</div> 
 
@@ -61,19 +61,19 @@
    	</div><!-- /new-user -->
 	   
     <a data-role="button" data-icon="refresh" id="get_project_list">Refresh My Project List</a>  
-	<div id="project_list_container" data-role="collapsible" class="ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
-		<h2><span id="my_project_cnt" class="user-style">My Projects</span> <span class="grey">Tap to Run; Toggle Weinre</span></h2>
-		<ul id="project_list" class="hidden" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
-			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
-		</ul>
+	<div id="project_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
+		<h2><span id="my_project_cnt" class="bleu"></span> <span class="grey">Tap to Run; Toggle Weinre</span></h2>
+		<ul id="project_list" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
+<!-- 			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
+ -->		</ul>
 	</div>
       
     <a data-role="button" data-icon="refresh" id="get_apk_list">Refresh My APK List</a>
-	<div id="apk_list_container" data-role="collapsible" class="ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
-		<h2><span id="my_apk_cnt" class="user-style">My APKs</span> <span class="grey">Tap to Download &#40;Install, Run&#41;</span></h2>
-		<ul id="apk_list" class="hidden" data-role="listview" data-inset="true" data-theme="c">
-			<li id="li-placeholder2" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
-		</ul>
+	<div id="apk_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
+		<h2><span id="my_apk_cnt" class="bleu">My APKs</span> <span class="grey">Tap to Download &#40;Install, Run&#41;</span></h2>
+		<ul id="apk_list" data-role="listview" data-inset="true" data-theme="c">
+<!-- 			<li id="li-placeholder2" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
+ -->		</ul>
 	</div>
           
     </div><!-- /content -->
@@ -129,7 +129,7 @@
     <div data-role="page" id="page-guest" data-theme="c">
   	<div data-role="header" data-theme="c">
 		<a href="#page-home" data-icon="back" data-iconpos="notext" data-theme="c"></a>
-    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username user-style"></span></h1> 
+    	<h1><em>App</em><span style="color:#777;">Laud</span> Cloud <span class="username bleu"></span></h1> 
 		<a href="#dialog-devmenu" data-rel="dialog" data-icon="grid" data-iconpos="notext" class="ui-btn-right" data-theme="d"></a>
 	</div>
 
@@ -145,14 +145,14 @@
     </div>
 
 	<ul id="demo_project_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
-		<li data-role="list-divider">Demo Projects <span class="grey">Tap to Run</span></li>
-		<li id="li-placeholder3" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
-	</ul>
+		<li data-role="list-divider"><span class="bleu">Demo Projects </span><span class="grey">Tap to Run</span></li>
+<!-- 		<li id="li-placeholder3" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
+ -->	</ul>
 
 	<ul id="demo_apk_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
-		<li data-role="list-divider">Demo APKs <span class="grey">Tap to Install and Run</span></li>
-		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a>
-		</li>
+		<li data-role="list-divider"><span class="bleu">Demo APKs </span><span class="grey">Tap to Download &#40;Install, Run&#41;</span></li>
+<!-- 		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a>
+		</li> -->
 	</ul>
 		    
     </div><!-- /content -->
@@ -173,9 +173,9 @@
 	</div>
     <div data-role="content" data-theme="c">
     
-	<p>AppLaud Cloud User: <span class="username user-style">Guest</span><br>
+	<p>AppLaud Cloud User: <span class="username bleu">Guest</span><br>
 	OpenId Provider:
-	<span id="useropenid" class="user-style">&#40;Not Set&#41;</span></p>
+	<span id="useropenid" class="bleu">&#40;Not Set&#41;</span></p>
 
 	<div data-role="collapsible" class="allcollapse" id="devmenu-help" data-theme="c" data-content-theme="c" data-collapsed="true">
 				<h3>Help with AppLaud App</h3>

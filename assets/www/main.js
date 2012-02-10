@@ -60,7 +60,7 @@ function go() {
                         $('#new-user').addClass('hidden');
                         $('#get_project_list').removeClass('hidden');
                         $('#get_apk_list').removeClass('hidden');
-                        $('#project_list').removeClass('hidden');
+                       // $('#project_list').removeClass('hidden');
                         $('#apk_list').removeClass('hidden');
                         $.mobile.changePage($("#page-home"));
                         console.log("AppLaudLog: setting username: " + r.user);
@@ -82,7 +82,7 @@ function go() {
                 $('#guest-user').append('<p>Or choose another OpenID Provider.</p>');
                 $('#guest-user').show();
                 // Remove saved openid provider from locstore and $('span#useropenid').html();
-                $('#project_list').addClass('hidden');
+                //$('#project_list').addClass('hidden');
                 $('#apk_list').addClass('hidden');
                 $.mobile.changePage($("#page-home"));
 //            } else {
@@ -130,7 +130,7 @@ function go() {
                 
                 if (locStoreProvider) {
                     //$('#project_list, #apk_list').removeClass('hidden');
-                    $('#project_list').removeClass('hidden');
+                    //$('#project_list').removeClass('hidden');
                     $('#apk_list').removeClass('hidden');
                     $('span#useropenid').html(locStoreProvider);
                 }
@@ -143,12 +143,12 @@ function go() {
     }
 
     // Populate the project list from localStorage and expand list
-    var i, length, listLocal = []; 
+    var length, listLocal = []; 
     listLocal = JSON.parse(localStorage.applaud_project_list);
     length = listLocal.length;
     if (length > 0) {
+        var i;
         //console.log("Project list length: " + listLocal.length);
-        $('#li-placeholder1').css('display', 'none');
         for (i = 0 ; i < length ; i++) {            
             $('<li class="project_item"><a href="#" class="projects"><h3>' +
                     listLocal[i].project +
@@ -160,43 +160,47 @@ function go() {
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
         }
-        $('#my_project_cnt').html(i + " Projects");
-        $('#project_list_container').css('visibility', 'visible');
+        $('#my_project_cnt').html(i + " Project" + ((i>1)? "s" : ""));
+        $('#project_list_container').removeClass('hidden');
         $('#project_list_container').trigger('expand');
         $("ul#project_list").listview('refresh');
-        $('#fading_msg').remove();
+        //$('#fading_msg').remove();
     } else {
-        $('#project_list_container').css('visibility', 'hidden');
-        $('#fading_msg').remove();
+        $('#project_list_container').addClass('hidden');
+       //$('#fading_msg').remove();
     }
+    
+    if (device.name === "GT-P7510") {
+        var orientation     = $.event.special.orientationchange.orientation();
+        console.log("*** orientation: " + orientation);
+    /*   
+            var getScreenHeightx = function() {
+                var orientation     = $.event.special.orientationchange.orientation(),
+                    port            = orientation === "landscape", // "portrait",
+                    winMin          = port ? 480 : 320,
+                    screenHeight    = port ? screen.availHeight : screen.availWidth,
+                    winHeight       = Math.max( winMin, $( window ).height() ),
+                    pageMin         = Math.min( screenHeight, winHeight );
+    console.log("*** orientation: " + orientation + " *** pageMin: " + pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
+                return pageMin;
+            };
+            var resetActivePageHeightx = function(){
+                // Don't apply this height in touch overflow enabled mode
+                if( $.support.touchOverflow && $.mobile.touchOverflowEnabled ){
+                    return;
+                }
+                $( "." + $.mobile.activePageClass ).css( "min-height", getScreenHeightx() );
+            };
+            //set page min-heights to be device specific
+            $( document ).bind( "pageshow", resetActivePageHeightx );
+            $( window ).bind( "throttledresize", resetActivePageHeightx );
+            // end Samsung Galaxy Tab 10.1 fix       
+    */
+        } 
 }
 
 
 function init() {
     document.addEventListener("deviceready", go, true);
-    
-/*    if (device.name === "GT-P7510") {
-        var getScreenHeightx = function() {
-            var orientation     = $.event.special.orientationchange.orientation(),
-                port            = orientation === "landscape", // "portrait",
-                winMin          = port ? 480 : 320,
-                screenHeight    = port ? screen.availHeight : screen.availWidth,
-                winHeight       = Math.max( winMin, $( window ).height() ),
-                pageMin         = Math.min( screenHeight, winHeight );
-console.log("*** orientation: " + orientation + " *** pageMin: " + pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
-            return pageMin;
-        };
-        var resetActivePageHeightx = function(){
-            // Don't apply this height in touch overflow enabled mode
-            if( $.support.touchOverflow && $.mobile.touchOverflowEnabled ){
-                return;
-            }
-            $( "." + $.mobile.activePageClass ).css( "min-height", getScreenHeightx() );
-        };
-        //set page min-heights to be device specific
-        $( document ).bind( "pageshow", resetActivePageHeightx );
-        $( window ).bind( "throttledresize", resetActivePageHeightx );
-        // end Samsung Galaxy Tab 10.1 fix       
-    } 
-*/
+
 }
