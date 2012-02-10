@@ -28,8 +28,7 @@ $('#page-home').live('pageinit', function(event){
         var useWeinre = ($('a#weinre_btn_' + proj_name).find('.ui-icon-weinre').css('background-image').indexOf('grey') > 0) ? false : true;
         var link = serverUrl + (useWeinre ? "/runWeinre/" : "/runProject/") + proj_name;
         console.log("AppLaudLog: run project : " + link);
-        navigator.app.loadUrl(link + "/assets/www/index.html", 
-                {loadUrlTimeoutValue: 5000});
+        navigator.app.loadUrl(link + "/assets/www/index.html");
         return false;
     });
         

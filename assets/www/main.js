@@ -75,9 +75,8 @@ function go() {
             } else if (loc.indexOf('/loginresult.html?email') > 0) {
                 window.plugins.childBrowser.close();
                 $('#guest-user').html('<p><h4>Oops!</h4>You are not registered with AppLaud for that OpenID Provider.</p>');
+                $('#guest-user').append('<p>Visit <a href="http://www.applaudcloud.com">http://www.applaudcloud.com</a> from your desktop to register, then use that OpenID provider in this app.</p>');
                 $('#guest-user').append('<p>No login is needed to use the Demo Apps page.</p>');
-                $('#guest-user').append('<p>Visit <a href="http://www.applaudcloud.com">http://www.applaudcloud.com</a> to register.</p>');
-                $('#guest-user').append('<p>Or choose another OpenID Provider.</p>');
                 $('#guest-user').show();
                 // Remove saved openid provider from locstore and $('span#useropenid').html();
                 $('#project_list_container').addClass('hidden');
