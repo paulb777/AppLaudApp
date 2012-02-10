@@ -23,9 +23,7 @@ h3 {color:#68aa86;} /* project & apk lists: light green */
  *  Leave more space vertically for buttons etc */
 .ui-content { padding: .4em 11px;}
 
-/*  padding: 10px 0 10px 8px; padding: 5px 0 5px 6px;*/
 .ui-collapsible-content { padding: 5px 5px 5px 6px; }
-/* .ui-collapsible { margin: .5em 7px; } */
 
 #project_list_container, #apk_list_container {
 	margin: .5em 8px;

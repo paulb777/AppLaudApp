@@ -5,7 +5,7 @@
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>AppLaud App</title>
     
-    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.1.css" type="text/css"/>
+    <link rel="stylesheet" href="jquery.mobile/jquery.mobile-1.0.1.min.css" type="text/css"/>
     <link rel="stylesheet" href="applaudapp.css" type="text/css" />
     <link type="text/css" rel="stylesheet" href="openid/css/openid.css" />
     
@@ -43,7 +43,7 @@
 
 	<div class="ui-body-c ui-corner-all ui-shadow box-nice hidden" id="guest-user"></div>
 	<div class="ui-body-c ui-corner-all ui-shadow box-nice hidden" id="new-user">
-    <p><h4>Welcome New User!</h4>
+    <p class="bleu">Welcome New User!</p>
  		<strong>Registered AppLaud Cloud Users</strong><br>
  		To access your AppLaud apps:         
 		<a href="#page-login" data-role="button" data-theme="c" class="goto_login">Go To Login Page</a>
@@ -51,8 +51,12 @@
 		<p><strong>New or Non-Registered Users</strong><br>
 		To run AppLaud Demos (no login needed):        
 		<a href="#page-guest" data-role="button" data-theme="c">Go To Demos Page</a></p> 
-	
-		<p>OR.. Visit <a href="http://www.mobiledevelopersolutions.com">AppLaud Cloud Home</a>
+
+		<b>SwipeLeft:</b> My Apps &gt; Demo Page<br/>
+		<b>SwipeRight:</b> Demo Page &gt; My Apps<br/>        
+		<b>Menu Button</b> &#47; <b>Menu Icon:</b> Help<br/>
+		
+		<p>Visit <a href="http://applaudcloud.com">AppLaud Cloud</a>
 		from your desktop to register and create apps.</p>
 	
     	<p>See Menu for more information.</p>
@@ -62,28 +66,17 @@
 	<div id="project_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
 		<h2><span id="my_project_cnt" class="bleu"></span> <span id="project_hint" class="grey">Tap to Run; Toggle Weinre</span></h2>
 		<ul id="project_list" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
-<!-- 			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
- -->		</ul>
+		</ul>
 	</div>
       
     <a data-role="button" data-icon="refresh" id="get_apk_list">Refresh My APK List</a>
 	<div id="apk_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
 		<h2><span id="my_apk_cnt" class="bleu">My APKs</span> <span id="apk_hint" class="grey">Tap to Download &#40;Install, Run&#41;</span></h2>
 		<ul id="apk_list" data-role="listview" data-inset="true" data-theme="c">
-<!-- 			<li id="li-placeholder2" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
- -->		</ul>
+		</ul>
 	</div>
           
     </div><!-- /content -->
-	<div data-role="footer" data-theme="c" data-position="fixed" data-id="appfooter">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#page-home">My Apps</a></li>
-				<li><a href="#page-guest">Demo Apps</a></li>
-				<li><a href="#dialog-devmenu" data-rel="dialog" class="show-help">Help</a></li>
-			</ul>
-		</div><!-- /navbar -->
-	</div><!-- /footer -->
     </div><!-- /page -->
 
     <div data-role="page" id="page-login" data-theme="c">
@@ -95,8 +88,8 @@
 	<h4>AppLaud App Login</h4>
 	
 	<!-- Simple OpenID Selector -->
-<!--  	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form"> -->
- 	<form action="http://192.168.0.104:8027/openidAuth" method="get" id="openid_form"> 
+  	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form"> 
+<!-- 	<form action="http://192.168.0.104:8027/openidAuth" method="get" id="openid_form"> -->
  	<input type="hidden" name="action" value="verify" />
 		<p>To access your apps you must log in with the same OpenID Provider used for Desktop AppLaud.</p>
 		<fieldset>
@@ -104,10 +97,6 @@
  				<p>Select your account provider:</p>
 				<div id="openid_btns"></div>
 			</div>
-<!-- 			<div id="openid_input_area"> -->
-<!-- 				<input id="openid_identifier" name="openid_identifier" type="text" value="http://" /> -->
-<!-- 				<input id="openid_submit" type="submit" value="Sign-In"/> -->
-<!-- 			</div> -->
 		</fieldset>
 	<p>Visit the Menu page for more about OpenID Secure Login.
 	</form>
@@ -151,17 +140,7 @@
  		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
 	</ul>
 		    
-    </div><!-- /content -->
-	<!--<div data-role="footer" data-theme="c" data-position="fixed" data-id="appfooter">
-		<div data-role="navbar">
-			<ul>
-				<li><a href="#page-home">My Apps</a></li>
-				<li><a href="#page-guest">Demo Apps</a></li>
-				<li><a href="#dialog-devmenu" data-rel="dialog" class="show-help">Help</a></li>
-			</ul>
-		</div>
-	</div> /footer -->
-	
+    </div><!-- /content -->	
 	</div><!-- /page -->
         
     <div data-role="page" id="dialog-devmenu" data-theme="c">
@@ -208,9 +187,14 @@
 	</div>    
 
     <div data-role="collapsible" class="allcollapse" data-theme="c" data-content-theme="c" data-collapsed="true">
-		<h3>Home Page</h3>
-		<p>Go to this page on launch.</p>
-		<label for="select-home-page" class="select">Select home page:</label>
+		<h3>Navigation / Pages</h3>		
+		<b>SwipeLeft:</b> My Apps &gt; Demo Page<br/>
+		<b>SwipeRight:</b> Demo Page &gt; My Apps<br/>        
+		<b>Menu Button</b> &#47; <b>Menu Icon:</b> Help<br/>
+
+		<p><b>Home Page:</b> Default on launch</p>
+
+		<label for="select-home-page" class="select">Select Home Page:</label>
 		<select name="select-home-page" id="select-home-page">
 			<option value="page-home">My Apps</option>
 			<option value="page-guest">Demo Apps</option>
@@ -246,7 +230,7 @@
 		</ul>			
 
 	</div>
-	<a href="#page-home" data-role="button" data-inline="true" data-rel="back">Close</a>
+	<a href="#page-home" data-role="button" data-inline="true" data-rel="back">Close&nbsp;</a>
 	</div><!-- /content -->
 	</div>    
   </body>

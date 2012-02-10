@@ -21,7 +21,11 @@
 // Manage the Demos page
 
 $('#page-guest').live('pageinit', function(event){
-    
+
+    $('#page-guest').live("swiperight", function () {
+        $.mobile.changePage($("#page-home"), {transition: 'slide', reverse: true});
+    });
+
     $('.demoprojects').live('click', function() {
         var proj_name = $(this).text();
         var link = serverUrl + "/runDemoProject/" + proj_name;

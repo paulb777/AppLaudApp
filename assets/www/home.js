@@ -22,7 +22,11 @@
 // Manage the My Apps page
 
 $('#page-home').live('pageinit', function(event){
-    
+
+    $('#page-home').live("swipeleft", function () {
+        $.mobile.changePage($("#page-guest"), {transition: 'slide'});
+    });
+   
     $('a.projects').live('click', function() {
         var proj_name = $(this).text();
         var useWeinre = ($('a#weinre_btn_' + proj_name).find('.ui-icon-weinre').css('background-image').indexOf('grey') > 0) ? false : true;

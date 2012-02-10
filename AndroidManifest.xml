@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-      package="com.mdstest.applaud"
+      package="com.mds.applaud"
       android:versionCode="5"
       android:versionName="1.4">
     <uses-sdk android:minSdkVersion="7" />

@@ -19,8 +19,8 @@
 //    THE SOFTWARE.
 
 
-//var serverUrl = 'http://applaudcloud.com'; // :80';
-var serverUrl = 'http://192.168.0.104:8027';
+var serverUrl = 'http://applaudcloud.com'; // :80';
+//var serverUrl = 'http://192.168.0.104:8027';
 
 function showMenu() {
     $.mobile.changePage($('#dialog-devmenu'), { role: 'dialog' });
@@ -126,9 +126,6 @@ function go() {
                 setUser(locStoreUsername);
                 
                 if (locStoreProvider) {
-                    //$('#project_list, #apk_list').removeClass('hidden');
-                    //$('#project_list').removeClass('hidden');
-                    //$('#apk_list').removeClass('hidden');
                     $('span#useropenid').html(locStoreProvider);
                 }
             }
