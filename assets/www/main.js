@@ -60,8 +60,6 @@ function go() {
                         $('#new-user').addClass('hidden');
                         $('#get_project_list').removeClass('hidden');
                         $('#get_apk_list').removeClass('hidden');
-                       // $('#project_list').removeClass('hidden');
-                        $('#apk_list').removeClass('hidden');
                         $.mobile.changePage($("#page-home"));
                         console.log("AppLaudLog: setting username: " + r.user);
                         localStorage.applaud_username = r.user;
@@ -82,8 +80,8 @@ function go() {
                 $('#guest-user').append('<p>Or choose another OpenID Provider.</p>');
                 $('#guest-user').show();
                 // Remove saved openid provider from locstore and $('span#useropenid').html();
-                //$('#project_list').addClass('hidden');
-                $('#apk_list').addClass('hidden');
+                $('#project_list_container').addClass('hidden');
+                $('#apk_list_container').addClass('hidden');
                 $.mobile.changePage($("#page-home"));
 //            } else {
                 // The other loc changes are part of openid.. or are they?
@@ -112,8 +110,8 @@ function go() {
         localStorage.applaud_homepage = 'page-home';
         $('#fading_msg').remove();
         $('#new-user').removeClass('hidden');
-        $('#get_project_list').addClass('hidden');
-        $('#get_apk_list').addClass('hidden');
+        $('a#get_project_list').addClass('hidden');
+        $('a#get_apk_list').addClass('hidden');
     }
      
     if (locStoreUsername && locStoreSession) { 
@@ -131,7 +129,7 @@ function go() {
                 if (locStoreProvider) {
                     //$('#project_list, #apk_list').removeClass('hidden');
                     //$('#project_list').removeClass('hidden');
-                    $('#apk_list').removeClass('hidden');
+                    //$('#apk_list').removeClass('hidden');
                     $('span#useropenid').html(locStoreProvider);
                 }
             }
@@ -154,26 +152,21 @@ function go() {
                     listLocal[i].project +
                     '</h3></a><a href="#" id="weinre_btn_' +
                     listLocal[i].project.replace(' ','') + '"></a></li>').appendTo('ul#project_list');            
-            $('#weinre_btn_' + listLocal[i].project.replace(' ','')).toggle(function() {        
+            $('a#weinre_btn_' + listLocal[i].project.replace(' ','')).toggle(function() {        
                 $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinreblue18x18.png)');                
               }, function() {
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
         }
-        $('#my_project_cnt').html(i + " Project" + ((i>1)? "s" : ""));
-        $('#project_list_container').removeClass('hidden');
-        $('#project_list_container').trigger('expand');
+        $('span#my_project_cnt').html(i + " Project" + ((i>1)? "s" : ""));
+        $('div#project_list_container').removeClass('hidden');
+        $('div#project_list_container').trigger('expand');
         $("ul#project_list").listview('refresh');
-        //$('#fading_msg').remove();
     } else {
-        $('#project_list_container').addClass('hidden');
-       //$('#fading_msg').remove();
+        $('div#project_list_container').addClass('hidden');
     }
     
     if (device.name === "GT-P7510") {
-        var orientation     = $.event.special.orientationchange.orientation();
-        console.log("*** orientation: " + orientation);
-    /*   
             var getScreenHeightx = function() {
                 var orientation     = $.event.special.orientationchange.orientation(),
                     port            = orientation === "landscape", // "portrait",
@@ -181,7 +174,8 @@ function go() {
                     screenHeight    = port ? screen.availHeight : screen.availWidth,
                     winHeight       = Math.max( winMin, $( window ).height() ),
                     pageMin         = Math.min( screenHeight, winHeight );
-    console.log("*** orientation: " + orientation + " *** pageMin: " + pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
+                    //console.log("*** orientation: " + orientation + " *** pageMin: " + 
+                    //pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
                 return pageMin;
             };
             var resetActivePageHeightx = function(){
@@ -194,13 +188,10 @@ function go() {
             //set page min-heights to be device specific
             $( document ).bind( "pageshow", resetActivePageHeightx );
             $( window ).bind( "throttledresize", resetActivePageHeightx );
-            // end Samsung Galaxy Tab 10.1 fix       
-    */
-        } 
+    } 
 }
 
 
 function init() {
     document.addEventListener("deviceready", go, true);
-
 }

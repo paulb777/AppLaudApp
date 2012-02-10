@@ -1,11 +1,8 @@
 h1 {color:#5a9;} /* the lt green of "App" */
-/* h4 {color:#466;margin-top:.5em;margin-bottom:.6em;} */
-
 h3 {color:#68aa86;} /* project & apk lists: light green */
 #get_project_list, #get_apk_list, li a, .ui-btn-up-c { color: #666; }
 .grey {color:#aaa; font-size: 12px; text-shadow: none; }
 .bleu {color:#126686; font-weight: bold; }
-/* .green {color:#0f522d;} */
 
 /* listview items: height shorter, text area wider !imporant: keep this order */
 .ui-btn-inner {padding-right:10px; padding-top: .55em; padding-bottom: .55em;}

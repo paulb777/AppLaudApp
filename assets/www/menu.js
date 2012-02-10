@@ -20,9 +20,9 @@
 
 $('#dialog-devmenu').live('pageinit', function(event){
     $('#close-new-user').click(function() {
-        $('#new-user').addClass('hidden');
-        $('#get_project_list').removeClass('hidden');
-        $('#get_apk_list').removeClass('hidden');
+        $('div#new-user').addClass('hidden');
+        $('a#get_project_list').removeClass('hidden');
+        $('a#get_apk_list').removeClass('hidden');
     });
     
     $('#dialog-devmenu').live('pagehide',function(event, ui){

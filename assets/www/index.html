@@ -1,9 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
-  
-<!--     <meta name="viewport" content="width=device-width; user-scalable=no" /> -->
+    <meta http-equiv="Content-type" name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">  
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>AppLaud App</title>
     
@@ -62,7 +60,7 @@
 	   
     <a data-role="button" data-icon="refresh" id="get_project_list">Refresh My Project List</a>  
 	<div id="project_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
-		<h2><span id="my_project_cnt" class="bleu"></span> <span class="grey">Tap to Run; Toggle Weinre</span></h2>
+		<h2><span id="my_project_cnt" class="bleu"></span> <span id="project_hint" class="grey">Tap to Run; Toggle Weinre</span></h2>
 		<ul id="project_list" data-role="listview" data-inset="true" data-theme="c" data-iconpos="notext" data-split-icon="weinre" data-split-theme="c">
 <!-- 			<li id="li-placeholder1"><a href="#"><span class="grey">(empty)</span></a><a href="#"></a></li>
  -->		</ul>
@@ -70,7 +68,7 @@
       
     <a data-role="button" data-icon="refresh" id="get_apk_list">Refresh My APK List</a>
 	<div id="apk_list_container" data-role="collapsible" class="hidden ui-shadow" data-collapsed="true" data-theme="c" data-content-theme="c">
-		<h2><span id="my_apk_cnt" class="bleu">My APKs</span> <span class="grey">Tap to Download &#40;Install, Run&#41;</span></h2>
+		<h2><span id="my_apk_cnt" class="bleu">My APKs</span> <span id="apk_hint" class="grey">Tap to Download &#40;Install, Run&#41;</span></h2>
 		<ul id="apk_list" data-role="listview" data-inset="true" data-theme="c">
 <!-- 			<li id="li-placeholder2" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
  -->		</ul>
@@ -97,8 +95,7 @@
 	<h4>AppLaud App Login</h4>
 	
 	<!-- Simple OpenID Selector -->
-<!--  	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form">
- -->
+<!--  	<form action="http://applaudcloud.com/openidAuth" method="get" id="openid_form"> -->
  	<form action="http://192.168.0.104:8027/openidAuth" method="get" id="openid_form"> 
  	<input type="hidden" name="action" value="verify" />
 		<p>To access your apps you must log in with the same OpenID Provider used for Desktop AppLaud.</p>
@@ -146,13 +143,12 @@
 
 	<ul id="demo_project_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
 		<li data-role="list-divider"><span class="bleu">Demo Projects </span><span class="grey">Tap to Run</span></li>
-<!-- 		<li id="li-placeholder3" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
- -->	</ul>
+ 		<li id="li-placeholder3" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
+ 	</ul>
 
 	<ul id="demo_apk_list" data-role="listview" data-inset="true" data-theme="c" data-divider-theme="c">
 		<li data-role="list-divider"><span class="bleu">Demo APKs </span><span class="grey">Tap to Download &#40;Install, Run&#41;</span></li>
-<!-- 		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a>
-		</li> -->
+ 		<li id="li-placeholder4" data-icon="false"><a href="#"><span class="grey">(empty)</span></a></li>
 	</ul>
 		    
     </div><!-- /content -->

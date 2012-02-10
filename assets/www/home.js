@@ -22,14 +22,14 @@
 // Manage the My Apps page
 
 $('#page-home').live('pageinit', function(event){
-    //fadingMsg('Loading Project List..');
     
-    $('.projects').live('click', function() {
+    $('a.projects').live('click', function() {
         var proj_name = $(this).text();
-        var useWeinre = ($('#weinre_btn_' + proj_name).find('.ui-icon-weinre').css('background-image').indexOf('grey') > 0) ? false : true;
+        var useWeinre = ($('a#weinre_btn_' + proj_name).find('.ui-icon-weinre').css('background-image').indexOf('grey') > 0) ? false : true;
         var link = serverUrl + (useWeinre ? "/runWeinre/" : "/runProject/") + proj_name;
         console.log("AppLaudLog: run project : " + link);
-        navigator.app.loadUrl(link + "/assets/www/index.html");
+        navigator.app.loadUrl(link + "/assets/www/index.html", 
+                {loadUrlTimeoutValue: 5000});
         return false;
     });
         
@@ -44,35 +44,40 @@ $('#page-home').live('pageinit', function(event){
                     + list[i].project
                     + '</h3></a><a href="#" id="weinre_btn_'
                     + list[i].project.replace(' ','') + '"></a></li>').appendTo('ul#project_list');            
-            $('#weinre_btn_' + list[i].project.replace(' ','')).toggle(function() {        
+            $('a#weinre_btn_' + list[i].project.replace(' ','')).toggle(function() {        
                 $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinreblue18x18.png)');                
               }, function() {
                   $(this).find('.ui-icon-weinre').css('background-image', 'url(images/weinregrey18x18.png)');
               });
         }
-        $('#my_project_cnt').html(i + " Project" + ((i>1)? "s" : ""));
-        $('#project_list_container').removeClass('hidden');
-        $('#project_list_container').trigger('expand');
+        $('span#my_project_cnt').html(i + " Project" + ((i>1)? "s" : ""));
+        $('div#project_list_container').removeClass('hidden');
+        $('div#project_list_container').trigger('expand');
         $("ul#project_list").listview('refresh');
     };
+
+    $('div#project_list_container').live('expand',function(){
+        $('span#project_hint').html("Tap to Run; Toggle Weinre");
+    });
+    $('div#project_list_container').live('collapse',function(){
+        $('span#project_hint').html("Expand to See Projects");
+    });
     
-    $('#get_project_list').live('click', function() {
+    $('a#get_project_list').live('click', function() {
         var showedError = false;
         console.log("AppLaudLog: get_project_list click");
         $.ajax({ url : serverUrl + "/getProjects", data : {}, cache : false, 
             beforeSend : function(jqXHR, settings) {
                     fadingMsg('Getting Project List..');
-                    //$('ul#project_list').empty();
+                    $('ul#project_list').empty();
             },            
             success : function(r, textStatus) {
-                /// better to empty list?
-                $('li.project_item').remove();
                 if (r.success) {
                     // Always means list has at least 1 item
                     buildProjectList(r.list);
                     saveLocalProjectList(r.list);
                 } else {
-                    $('#project_list_container').addClass('hidden');
+                    $('div#project_list_container').addClass('hidden');
                     saveLocalProjectList({});
                     if (r.error === 'Authentication failed. Please re-login.') {
                         navigator.notification.confirm(
@@ -92,7 +97,7 @@ $('#page-home').live('pageinit', function(event){
                 }
             }, 
             error : function(jqXHR, textStatus, errorThrown) {
-                $('#project_list_container').addClass('hidden');
+                $('div#project_list_container').addClass('hidden');
                 saveLocalProjectList({});
                 if (!showedError) {
                     var errormsg;
@@ -114,7 +119,6 @@ $('#page-home').live('pageinit', function(event){
             },
             complete : function(jqXHR, textStatus) {
                 $('#fading_msg').remove();
-                //$("ul#project_list").listview('refresh');
                 if ((!showedError) && textStatus === 'error') {
                     console.log('AppLaudLog: Get Projects completed with Error.');
                 }
@@ -138,36 +142,40 @@ $('#page-home').live('pageinit', function(event){
                     + appName + '<span class="grey"> ' + buildType 
                     + '</span></h3></a></li>').appendTo('ul#apk_list');
         }       
-        // is this ever called with 0 length list?
-        if (i >= 1) {
-            $('#my_apk_cnt').html(i + " APKs");
-            $('#apk_list_container').removeClass('hidden');
-            $('#apk_list_container').trigger('expand');
-        }
+        $('span#my_apk_cnt').html(i + " APK" + ((i>1)? "s" : ""));
+        $('div#apk_list_container').removeClass('hidden');
+        $('div#apk_list_container').trigger('expand');
+        $("ul#apk_list").listview('refresh');
     };    
     
-    $('.apks').live('click', function() {
+    $('a.apks').live('click', function() {
         var id = $(this).attr('id');
         window.plugins.childBrowser.openExternal(serverUrl + '/downloadApk' + '?file=' + apkMap[id] + '&user=' + apkUser + '&session=' + apkSession);
     });
+ 
+    $('div#apk_list_container').live('expand',function(){
+        $('#apk_hint').html("Tap to Download &#40;Install, Run&#41;");
+    });
+    $('div#apk_list_container').live('collapse',function(){
+        $('#apk_hint').html("Expand to See APKs");
+    });
 
-    $('#get_apk_list').click(function() {
+    $('a#get_apk_list').click(function() {
         var showedError = false;
         console.log("AppLaudLog: get_apk_list");
         $.ajax({ url : serverUrl + "/getApks", data : {}, cache : false, 
             beforeSend : function(jqXHR, settings) {
                 fadingMsg('Getting APK List..');
+                $('ul#apk_list').empty();
             },
             success : function(r, textStatus) {
-                $('li.apk_item').remove();
                 if (r.success) {
                     // Always means list has at least 1 item
                     buildApkList(r.list);
                     apkUser = r.user;
                     apkSession = r.session;
                 } else {
-                    $('#apk_list_container').addClass('hidden');
-                    //$('#li-placeholder2').css('display', 'block');
+                    $('div#apk_list_container').addClass('hidden');
                     if (r.error === 'Authentication failed. Please re-login.') {
                         navigator.notification.confirm(
                                 r.error, 
@@ -176,7 +184,6 @@ $('#page-home').live('pageinit', function(event){
                                 'Login,Close' 
                         );
                     } else {
-                        //$('#li-placeholder2').css('display', 'block');
                         navigator.notification.alert(
                                 'No APKs found. To build a project run Package->Build in AppLaud Cloud.',  
                                 null,         
@@ -187,6 +194,7 @@ $('#page-home').live('pageinit', function(event){
                 }
             }, 
             error : function(jqXHR, textStatus, errorThrown) {
+                $('div#apk_list_container').addClass('hidden');
                 if (!showedError) {
                     var errormsg;
                     if (errorThrown === '') { errormsg = 'Check network connection.'; }
@@ -199,7 +207,6 @@ $('#page-home').live('pageinit', function(event){
             },
             complete : function(jqXHR, textStatus) {
                 $('#fading_msg').remove();
-                $("ul#apk_list").listview('refresh');
                 if ((!showedError) && textStatus === 'error') {
                     console.log('AppLaudLog: Get Apks completed with Error.');
                 }
