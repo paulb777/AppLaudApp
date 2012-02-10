@@ -161,30 +161,6 @@ function go() {
     } else {
         $('div#project_list_container').addClass('hidden');
     }
-    
-    if (device.name === "GT-P7510") {
-            var getScreenHeightx = function() {
-                var orientation     = $.event.special.orientationchange.orientation(),
-                    port            = orientation === "landscape", // "portrait",
-                    winMin          = port ? 480 : 320,
-                    screenHeight    = port ? screen.availHeight : screen.availWidth,
-                    winHeight       = Math.max( winMin, $( window ).height() ),
-                    pageMin         = Math.min( screenHeight, winHeight );
-                    //console.log("*** orientation: " + orientation + " *** pageMin: " + 
-                    //pageMin + " *** screen.availHeight: " + screen.availHeight + " port: " + port);
-                return pageMin;
-            };
-            var resetActivePageHeightx = function(){
-                // Don't apply this height in touch overflow enabled mode
-                if( $.support.touchOverflow && $.mobile.touchOverflowEnabled ){
-                    return;
-                }
-                $( "." + $.mobile.activePageClass ).css( "min-height", getScreenHeightx() );
-            };
-            //set page min-heights to be device specific
-            $( document ).bind( "pageshow", resetActivePageHeightx );
-            $( window ).bind( "throttledresize", resetActivePageHeightx );
-    } 
 }
 
 

@@ -1,3 +1,6 @@
+/* Some tablets mis-report orientation, leaving white at bottom: */
+body { background-color: #85c1bc;}
+
 h1 {color:#5a9;} /* the lt green of "App" */
 h3 {color:#68aa86;} /* project & apk lists: light green */
 #get_project_list, #get_apk_list, li a, .ui-btn-up-c { color: #666; }
