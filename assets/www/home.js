@@ -24,7 +24,7 @@
 $('#page-home').live('pageinit', function(event){
 
     $('#page-home').live("swipeleft", function () {
-        $.mobile.changePage($("#page-guest"), {transition: 'slide'});
+        $.mobile.changePage($("#page-guest"), {transition: 'slide', changeHash: false});
     });
    
     $('a.projects').live('click', function() {
